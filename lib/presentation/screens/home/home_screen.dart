@@ -9,11 +9,10 @@ import '../../providers/task_provider.dart';
 import '../../widgets/common/app_bottom_nav.dart';
 import '../../widgets/common/app_card.dart';
 import '../ai/ai_chat_screen.dart';
-import '../database/database_list_screen.dart';
 import '../habits/habits_screen.dart';
 import '../notes/notes_list_screen.dart';
 import '../tasks/tasks_screen.dart';
-import '../settings/settings_screen.dart';
+// removed unused imports
 
 class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({super.key});

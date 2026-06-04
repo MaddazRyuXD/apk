@@ -21,10 +21,10 @@ class HabitsScreen extends ConsumerWidget {
           const SizedBox(height: 12),
           const HabitCalendarHeatmap(),
           const SizedBox(height: 16),
-          ...habits.map((habit) => GestureDetector(
-                onTap: () => context.go('/habits/detail', extra: habit),
-                child: HabitCard(title: habit.name),
-              )).toList(),
+          for (final habit in habits) GestureDetector(
+            onTap: () => context.go('/habits/detail', extra: habit),
+            child: HabitCard(title: habit.name),
+          ),
         ],
       ),
       floatingActionButton: FloatingActionButton(
