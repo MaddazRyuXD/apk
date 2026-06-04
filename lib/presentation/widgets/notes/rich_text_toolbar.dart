@@ -5,6 +5,6 @@ class RichTextToolbar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(children: const [Icon(Icons.format_bold), SizedBox(width: 12), Icon(Icons.format_italic)]);
+    return const Row(children: [Icon(Icons.format_bold), SizedBox(width: 12), Icon(Icons.format_italic)]);
   }
 }

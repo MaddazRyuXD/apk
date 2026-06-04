@@ -143,7 +143,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
-            const DrawerHeader(child: Text('HabitsXD', style: TextStyle(fontSize: 24, color: Colors.white)), decoration: BoxDecoration(color: Colors.blue)),
+            const DrawerHeader(decoration: BoxDecoration(color: Colors.blue), child: Text('HabitsXD', style: TextStyle(fontSize: 24, color: Colors.white))),
             ListTile(
               leading: const Icon(Icons.home),
               title: const Text('Home'),
