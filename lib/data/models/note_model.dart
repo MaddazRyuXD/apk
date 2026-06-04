@@ -6,7 +6,7 @@ class NoteModel {
   final DateTime createdAt;
   final DateTime updatedAt;
 
-  const NoteModel({required this.id, required this.title, required this.content, DateTime? createdAt, DateTime? updatedAt})
+  NoteModel({required this.id, required this.title, required this.content, DateTime? createdAt, DateTime? updatedAt})
       : createdAt = createdAt ?? DateTime.now(),
         updatedAt = updatedAt ?? DateTime.now();
 

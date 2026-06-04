@@ -13,7 +13,7 @@ class NotesListScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final notes = ref.watch(notesProvider);
     final query = ref.watch(noteSearchProvider);
-    final filtered = notes.where((note) => note.title.toLowerCase().contains(query.state.toLowerCase()) || note.content.toLowerCase().contains(query.state.toLowerCase())).toList();
+    final filtered = notes.where((note) => note.title.toLowerCase().contains(query.toLowerCase()) || note.content.toLowerCase().contains(query.toLowerCase())).toList();
     return Scaffold(
       appBar: AppBar(title: const Text('Notes')),
       body: Padding(
@@ -22,7 +22,7 @@ class NotesListScreen extends ConsumerWidget {
           children: [
             TextField(
               decoration: const InputDecoration(labelText: 'Cari note', prefixIcon: Icon(Icons.search)),
-              onChanged: (value) => ref.read(noteSearchProvider).state = value,
+              onChanged: (value) => ref.read(noteSearchProvider.notifier).state = value,
             ),
             const SizedBox(height: 16),
             Expanded(

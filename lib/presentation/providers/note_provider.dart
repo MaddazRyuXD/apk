@@ -16,8 +16,8 @@ class NotesNotifier extends StateNotifier<List<NoteModel>> {
     final saved = LocalStorageService.readList(LocalStorageService.noteBox);
     if (saved.isEmpty) {
       return [
-        const NoteModel(id: '1', title: 'Rencana minggu ini', content: 'Coba buat habit baru.'),
-        const NoteModel(id: '2', title: 'Ide project', content: 'Bangun Habit Tracker modern.'),
+        NoteModel(id: '1', title: 'Rencana minggu ini', content: 'Coba buat habit baru.'),
+        NoteModel(id: '2', title: 'Ide project', content: 'Bangun Habit Tracker modern.'),
       ];
     }
     return saved.map(NoteModel.fromMap).toList();

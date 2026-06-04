@@ -1,10 +1,9 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter_quill/flutter_quill.dart' hide Text;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:uuid/uuid.dart';
 import '../../providers/note_provider.dart';
-import '../../data/models/note_model.dart';
+import 'package:habitsxd/data/models/note_model.dart';
 
 class NoteEditorScreen extends ConsumerStatefulWidget {
   final NoteModel? note;
@@ -16,26 +15,21 @@ class NoteEditorScreen extends ConsumerStatefulWidget {
 }
 
 class _NoteEditorScreenState extends ConsumerState<NoteEditorScreen> {
-  late final QuillController _controller;
+  final contentController = TextEditingController();
   final titleController = TextEditingController();
   bool isSaving = false;
 
   @override
   void initState() {
     super.initState();
-    _controller = widget.note != null
-        ? QuillController(
-            document: Document()..insert(0, widget.note!.content),
-            selection: const TextSelection.collapsed(offset: 0),
-          )
-        : QuillController.basic();
+    contentController.text = widget.note?.content ?? '';
     titleController.text = widget.note?.title ?? '';
   }
 
   Future<void> _saveNote() async {
     setState(() => isSaving = true);
     final title = titleController.text.trim().isEmpty ? 'Catatan Baru' : titleController.text.trim();
-    final content = _controller.document.toPlainText().trim();
+    final content = contentController.text.trim();
     if (widget.note != null) {
       final updatedNote = widget.note!.copyWith(title: title, content: content);
       ref.read(notesProvider.notifier).updateNote(updatedNote);
@@ -78,13 +72,14 @@ class _NoteEditorScreenState extends ConsumerState<NoteEditorScreen> {
               decoration: const InputDecoration(labelText: 'Judul Note'),
             ),
           ),
-          QuillToolbar.basic(controller: _controller),
           Expanded(
             child: Container(
               padding: const EdgeInsets.all(16),
-              child: QuillEditor.basic(
-                controller: _controller,
-                readOnly: false,
+              child: TextField(
+                controller: contentController,
+                maxLines: null,
+                expands: true,
+                decoration: const InputDecoration(border: InputBorder.none, hintText: 'Tulis catatan...'),
               ),
             ),
           ),

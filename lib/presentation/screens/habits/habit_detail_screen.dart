@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../../data/models/habit_model.dart';
+import 'package:habitsxd/data/models/habit_model.dart';
 import '../../providers/habit_provider.dart';
 
 class HabitDetailScreen extends ConsumerWidget {

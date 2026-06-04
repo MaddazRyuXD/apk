@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:uuid/uuid.dart';
 import '../../providers/calendar_provider.dart';
-import '../../data/models/event_model.dart';
+import 'package:habitsxd/data/models/event_model.dart';
 
 class EventFormScreen extends ConsumerStatefulWidget {
   final DateTime? selectedDay;

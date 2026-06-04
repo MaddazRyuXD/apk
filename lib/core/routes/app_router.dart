@@ -2,7 +2,6 @@
 import 'package:go_router/go_router.dart';
 import '../../presentation/screens/auth/login_screen.dart';
 import '../../presentation/screens/auth/register_screen.dart';
-import '../../presentation/screens/calendar/calendar_screen.dart';
 import '../../presentation/screens/database/database_detail_screen.dart';
 import '../../presentation/screens/database/database_list_screen.dart';
 import '../../presentation/screens/home/home_screen.dart';
@@ -19,7 +18,6 @@ import '../../presentation/screens/habits/habit_detail_screen.dart';
 import '../../presentation/screens/habits/habits_screen.dart';
 import '../../presentation/screens/calendar/event_detail_screen.dart';
 import '../../presentation/screens/calendar/event_form_screen.dart';
-import '../../presentation/screens/calendar/calendar_screen.dart';
 import '../../presentation/screens/ai/ai_chat_screen.dart';
 import '../../data/models/note_model.dart';
 import '../../data/models/task_model.dart';

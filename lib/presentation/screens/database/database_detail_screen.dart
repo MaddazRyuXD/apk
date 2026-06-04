@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import '../../data/models/database_model.dart';
+import 'package:habitsxd/data/models/database_model.dart';
 
 class DatabaseDetailScreen extends StatelessWidget {
   final DatabaseModel database;

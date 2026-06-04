@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../../data/models/event_model.dart';
+import 'package:habitsxd/data/models/event_model.dart';
 import '../../providers/calendar_provider.dart';
 
 class EventDetailScreen extends ConsumerWidget {
