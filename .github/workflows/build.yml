@@ -56,6 +56,12 @@ jobs:
       - name: Clean Build Cache
         run: flutter clean
 
+      - name: Clean Gradle Cache
+        run: cd android && ./gradlew clean || gradle clean
+
+      - name: Re-fetch Dependencies After Clean
+        run: flutter pub get
+
       - name: Analyze Code
         run: flutter analyze --no-fatal-infos
         continue-on-error: true
