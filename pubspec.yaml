@@ -28,7 +28,7 @@ dependencies:
   dio: ^5.4.3+1
   shared_preferences: ^2.2.3
   flutter_svg: ^2.0.10+1
-  lucide_icons: ^0.0.2
+  lucide_icons: ^0.257.0
   gap: ^3.0.1
   shimmer: ^3.0.0
   lottie: ^3.1.2
