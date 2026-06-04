@@ -18,6 +18,7 @@ import '../../presentation/screens/habits/habit_detail_screen.dart';
 import '../../presentation/screens/habits/habits_screen.dart';
 import '../../presentation/screens/calendar/event_detail_screen.dart';
 import '../../presentation/screens/calendar/event_form_screen.dart';
+import '../../presentation/screens/calendar/calendar_screen.dart';
 import '../../presentation/screens/ai/ai_chat_screen.dart';
 import '../../data/models/note_model.dart';
 import '../../data/models/task_model.dart';
