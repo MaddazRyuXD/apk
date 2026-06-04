@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace 'com.MaddazXD.HabitsXD'
+    namespace 'com.maddazryuxd.habitsxd'
     compileSdk 36
 
     defaultConfig {
-        applicationId 'com.MaddazXD.HabitsXD'
+        applicationId 'com.maddazryuxd.habitsxd'
         minSdk 24
         targetSdk 36
         versionCode 1

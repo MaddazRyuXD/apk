@@ -1,4 +1,4 @@
-package com.MaddazXD.HabitsXD
+package com.maddazryuxd.habitsxd
 
 import io.flutter.embedding.android.FlutterActivity
 
