@@ -1,0 +1,30 @@
+# Flutter
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+build/
+*.lock
+
+# Android
+android/app/google-services.json
+android/.gradle/
+android/local.properties
+*.jks
+*.keystore
+
+# Secrets & Environment
+lib/core/constants/env_config.dart
+.env
+.env.*
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# macOS
+.DS_Store
+
+# Test
+coverage/

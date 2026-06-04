@@ -1,0 +1,64 @@
+name: Build HabitsXD APK
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build APK
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.22.0'
+          channel: 'stable'
+          cache: true
+
+      - name: Create google-services.json
+        run: |
+          echo '${{ secrets.GOOGLE_SERVICES_JSON }}' > android/app/google-services.json
+
+      - name: Create environment config
+        run: |
+          mkdir -p lib/core/constants
+          echo "const String geminiApiKey = '${{ secrets.GEMINI_API_KEY }}';" > lib/core/constants/env_config.dart
+
+      - name: Install Flutter Dependencies
+        run: flutter pub get
+
+      - name: Generate App Icons
+        run: dart run flutter_launcher_icons:main
+
+      - name: Run Code Generation
+        run: dart run build_runner build --delete-conflicting-outputs
+
+      - name: Analyze Code
+        run: flutter analyze --no-fatal-infos
+        continue-on-error: true
+
+      - name: Build APK
+        run: flutter build apk --release --no-tree-shake-icons
+
+      - name: Upload APK Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: HabitsXD-release-apk
+          path: build/app/outputs/flutter-apk/app-release.apk
+          retention-days: 30
