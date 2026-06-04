@@ -43,10 +43,6 @@ jobs:
       - name: Install Flutter Dependencies
         run: flutter pub get
 
-      - name: Configure Android SDK
-        run: |
-          echo "flutter.sdk=$FLUTTER_HOME" > android/local.properties
-
       - name: Generate App Icons
         run: dart run flutter_launcher_icons:main
 
@@ -57,7 +53,8 @@ jobs:
         run: flutter clean
 
       - name: Clean Gradle Cache
-        run: cd android && ./gradlew clean || gradle clean
+        run: cd android && gradle clean || true
+        continue-on-error: true
 
       - name: Re-fetch Dependencies After Clean
         run: flutter pub get
